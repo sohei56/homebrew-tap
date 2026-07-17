@@ -1,7 +1,7 @@
 # Homebrew cask TEMPLATE for the MaulTeam Mac app (distribution channel ③).
 #
 # This file is the source of truth. It is NOT a live cask on its own — the
-# 2.0.2 / aa6800abd2392dc1406d5b5d6ec16ee1c517b2d6bc4945654b2a0642e5994b57 placeholders are rendered by macapp/scripts/bump-tap.sh
+# 2.0.3 / 18d7f52b1665d26be9343a661ce1e2b93e1283466146084dbfe5d513fa5bc284 placeholders are rendered by macapp/scripts/bump-tap.sh
 # on each Release publish and the result is pushed to the tap repo
 # (sohei56/homebrew-tap) as Casks/maul-team.rb. End users install with:
 #
@@ -9,8 +9,8 @@
 #   brew install --cask maul-team
 #
 cask "maul-team" do
-  version "2.0.2"
-  sha256 "aa6800abd2392dc1406d5b5d6ec16ee1c517b2d6bc4945654b2a0642e5994b57"
+  version "2.0.3"
+  sha256 "18d7f52b1665d26be9343a661ce1e2b93e1283466146084dbfe5d513fa5bc284"
 
   url "https://github.com/sohei56/maul-team/releases/download/v#{version}/MaulTeam-#{version}.dmg"
   name "Maul Team for Claude Code"
