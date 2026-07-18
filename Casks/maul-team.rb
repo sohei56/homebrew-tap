@@ -1,7 +1,7 @@
 # Homebrew cask TEMPLATE for the MaulTeam Mac app (distribution channel ③).
 #
 # This file is the source of truth. It is NOT a live cask on its own — the
-# 2.0.3 / 18d7f52b1665d26be9343a661ce1e2b93e1283466146084dbfe5d513fa5bc284 placeholders are rendered by macapp/scripts/bump-tap.sh
+# 2.0.4 / 8322aea62c3cd7b869bba21937fb059b34c317dd2f824037916611eb5ff29c38 placeholders are rendered by macapp/scripts/bump-tap.sh
 # on each Release publish and the result is pushed to the tap repo
 # (sohei56/homebrew-tap) as Casks/maul-team.rb. End users install with:
 #
@@ -9,8 +9,8 @@
 #   brew install --cask maul-team
 #
 cask "maul-team" do
-  version "2.0.3"
-  sha256 "18d7f52b1665d26be9343a661ce1e2b93e1283466146084dbfe5d513fa5bc284"
+  version "2.0.4"
+  sha256 "8322aea62c3cd7b869bba21937fb059b34c317dd2f824037916611eb5ff29c38"
 
   url "https://github.com/sohei56/maul-team/releases/download/v#{version}/MaulTeam-#{version}.dmg"
   name "Maul Team for Claude Code"
@@ -19,6 +19,12 @@ cask "maul-team" do
 
   # Matches LSMinimumSystemVersion (14.0) in make-app.sh's Info.plist.
   depends_on macos: :sonoma
+
+  # The app self-updates via Sparkle (EdDSA-signed appcast). Declaring this
+  # stops a plain `brew upgrade` from clobbering a copy Sparkle already moved
+  # to a newer version. `brew upgrade --greedy` still reinstalls a
+  # same-or-newer cask because bump-tap.sh bumps the tap on every release.
+  auto_updates true
 
   app "MaulTeam.app"
 
